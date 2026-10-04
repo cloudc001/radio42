@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Radio42 - CloudC Telephony42 live radio service." />
+  <title>Radio42 · CloudC Telephony42</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.14);
+      --text: #eef6ff;
+      --muted: #9fb4cc;
+      --accent: #7dd3fc;
+      --accent-strong: #38bdf8;
+      --ok: #86efac;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(129, 140, 248, 0.24), transparent 30%),
+        linear-gradient(135deg, #06101e 0%, #0b172a 52%, #08111f 100%);
+    }
+
+    main {
+      width: min(920px, 100%);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      background: linear-gradient(180deg, var(--card), rgba(255, 255, 255, 0.04));
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--ok);
+      background: rgba(134, 239, 172, 0.1);
+      border: 1px solid rgba(134, 239, 172, 0.24);
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 24px 0 12px;
+      font-size: clamp(42px, 8vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.6;
+    }
+
+    .panel {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: 24px;
+      background: var(--card-strong);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    audio {
+      width: 100%;
+      height: 48px;
+      accent-color: var(--accent-strong);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .tile {
+      min-height: 120px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(7, 17, 31, 0.66);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .value {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 750;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    a { color: var(--accent); }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 760px) {
+      main { padding: 26px; border-radius: 24px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="eyebrow">● Live over Telephony42</span>
+    <h1>Radio42</h1>
+    <p class="lead">
+      CloudC Telephony42 的实验电台入口。网页端可直接收听；电话端拨打 <strong>6001</strong>
+      时由 PBX 转接同一直播源。
+    </p>
+
+    <section class="panel" aria-label="Radio player">
+      <audio controls preload="none" src="https://lhttp.qtfm.cn/live/274/64k.mp3">
+        当前浏览器不支持音频播放。
+      </audio>
+      <small>如果浏览器拦截自动播放，请手动点击播放。电话端请拨打 <strong>6001</strong>。</small>
+    </section>
+
+    <section class="grid" aria-label="Service information">
+      <article class="tile">
+        <p class="label">Short Code</p>
+        <p class="value">6001</p>
+      </article>
+      <article class="tile">
+        <p class="label">Telephony42</p>
+        <p class="value">+042437776001</p>
+      </article>
+      <article class="tile">
+        <p class="label">Domain</p>
+        <p class="value">radio42.cloudc.dev</p>
+      </article>
+    </section>
+
+    <footer>
+      Powered by CloudC DN42 / Telephony42. This static page is independent from the main
+      <a href="https://cloudc.dev/">cloudc.dev</a> website.
+    </footer>
+  </main>
+</body>
+</html>
